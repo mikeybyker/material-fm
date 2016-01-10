@@ -1,0 +1,21 @@
+<md-content flex>
+
+    <breadcrumbs links="ac.links"></breadcrumbs>
+
+    <md-divider></md-divider>
+
+    <div layout="row" layout-margin>
+        <div flex="40">
+        <img ng-src="{{ac.mainimage}}">
+        </div>
+        <div flex>
+            <h2 class="md-headline m-t-0">{{ac.album.name}}</h2>
+            <ol class="track-list">
+                <li ng-repeat="track in ac.album.tracks.track" class="md-body-1">
+                    <a ng-href="{{track.url}}" target="_blank">{{ track.name }}</a> ({{ac.getDuration(track.duration)}})
+                </li>
+            </ol>
+        </div>
+    </div>
+
+</md-content>

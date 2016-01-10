@@ -1,0 +1,276 @@
+/* Just about all css directly from the angular-material seed project */
+html, body
+{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Toolbar area */
+
+.menu
+{
+    background-color: transparent;
+    border: none;
+    height: 38px;
+    margin: 16px;
+    width: 36px;
+}
+
+md-toolbar h1
+{
+    margin: auto;
+}
+
+/* Sidenav area */
+
+md-list .md-button
+{
+    color: inherit;
+    font-weight: 500;
+    text-align: left;
+    width: 100%;
+}
+    md-list .md-button.selected
+    {
+        color: #03a9f4;
+    }
+
+md-sidenav  md-list
+{
+    padding: 0px 0px 8px 0px;
+}
+
+
+/* Primary content area */
+
+#content
+{
+    overflow: hidden;
+}
+
+#content
+{
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 5px;
+}
+
+#content .md-button.contact
+{
+    background-color: transparent;
+    border: none;
+    width: 48px;
+    height: 48px;
+    margin: 8px auto 16px 0;
+    position: absolute;
+    top: 10px;
+    right: 40px;
+}
+
+#content .md-button.contact > md-icon
+{
+    fill:black;
+    width:36px;
+    height:36px;
+}
+
+md-button.menuBtn > md-icon
+{
+    fill:white;
+    width:24px;
+    height:24px;
+}
+
+#content .md-button.contact:active > md-icon
+{
+    background-color: #dadada;
+    border-radius: 75%;
+    padding:4px;
+    transition: all 100ms ease-out 30ms;
+}
+
+#content img
+{
+    max-width: 500px;
+}
+
+/* Utils */
+
+.content-wrapper
+{
+    position: relative;
+}
+.clearfix:after
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+/* Typography support coming in 0.8.0 */
+
+md-toolbar h1
+{
+    font-size: 1.250em;
+    font-weight: 400;
+}
+
+
+md-bottom-sheet  md-icon
+{
+    margin-right:20px;
+}
+
+span.name
+{
+    font-weight: bold;
+    font-size:1.1em;
+    padding-left:5px;
+}
+
+
+md-toolbar.mb
+{
+    margin-bottom: 2rem;
+}
+/**
+ * Hide when Angular is not yet loaded and initialized
+ */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
+{
+  display: none !important;
+}
+[ng-click],
+[data-ng-click],
+[x-ng-click]
+{
+    cursor: pointer;
+}
+a
+{
+    color: #2ba6cb;
+}
+ol.track-list
+{
+    padding-left: 22px;
+}
+    ol.track-list li
+    {
+        /*font-size: 1.2rem;*/
+        margin-bottom: 0.4rem;
+    }
+
+.m-t-0
+{
+    margin-top: 0;
+}
+
+.breadcrumbs
+{
+    list-style: outside none none;
+    margin: 1rem 0 1rem;
+}
+    .breadcrumbs li
+    {
+        color: #0a0a0a;
+        cursor: default;
+        float: left;
+        font-size: 1rem;
+        text-transform: uppercase;
+    }
+        .breadcrumbs li:not(:last-child)::after
+        {
+            color: #cacaca;
+            content: "/";
+            margin: 0 0.75rem;
+            opacity: 1;
+            position: relative;
+            top: 1px;
+        }
+    .breadcrumbs .disabled
+    {
+        color: #cacaca;
+    }
+    .breadcrumbs a
+    {
+        color: #2ba6cb;
+    }
+
+
+.main-toolbar
+{
+    min-height: 70px;
+}
+
+.aspect
+{
+    max-width:100%;
+    height:auto;
+}
+
+.artist
+{
+    display: block;
+    margin: 0 auto;
+}
+
+.artist-select span
+{
+    text-align: center;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.rel
+{
+    position: relative;
+}
+.md-raised.results-button
+{
+    position: absolute;
+    bottom: -8px;
+    width: 194px;
+    left: 50%;
+    margin-left: -97px;
+    font-size: 0.75rem;
+}
+h3.results
+{
+    text-align: center;
+    margin: 0;
+}
+
+/* Similar Artist */
+md-grid-list md-grid-tile md-grid-tile-header,
+md-grid-list md-grid-tile md-grid-tile-footer
+{
+    background: rgba(0, 0, 0, 0.48);
+    max-width: 194px;
+    margin: 0 auto;
+}
+    md-grid-list md-grid-tile md-grid-tile-footer figcaption 
+    {
+        width: 100%;
+    }
+        md-grid-list md-grid-tile md-grid-tile-footer figcaption h3
+        {
+            text-align: center;
+            margin: 0 16px;
+        }
+    .artist-footer a
+    {
+        color: #fff;
+    }
+
+/*  */
+#searchForm md-input-container
+{
+    margin-bottom: 0;
+}
+#searchForm .md-errors-spacer
+{
+    display: none;
+}

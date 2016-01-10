@@ -1,0 +1,76 @@
+<breadcrumbs links="ac.links"></breadcrumbs>
+
+<div layout="row">
+    <md-card>
+        <div layout="column" layout-fill>
+            <md-toolbar class="md-accent">
+                <div class="md-toolbar-tools">
+                    <span><h3>{{ac.artist.name}}</h3></span>
+                    <span flex></span>
+                    <md-button class="menu" aria-label="Share" ng-href="{{ac.artist.url}}" target="_blank">
+                        <md-icon md-svg-icon="share" style="color: black"></md-icon>
+                        <md-tooltip>View on Last.fm</md-tooltip>
+                    </md-button>
+                </div>
+            </md-toolbar>
+        </div>
+        <md-card-content layout="row" layout-xs="column" layout-align="start start" layout-align-xs="center center" layout-padding>
+            <div flex>
+                <img ng-src="{{ac.mainimage}}" />
+            </div>
+            <div flex="grow">
+                <p ng-bind-html="ac.artist.bio.summary"></p>
+                <dl>
+                    <dt>
+                        <strong>Listeners</strong> 
+                    </dt>
+                    <dd>{{ac.artist.stats.listeners}}</dd>
+                    <dt>
+                        <strong>Play Count </strong>
+                    </dt>
+                    <dd>{{ac.artist.stats.playcount}}</dd>
+                </dl>
+            </div>
+        </md-card-content>
+        <md-card-footer>
+            &nbsp;
+        </md-card-footer>
+    </md-card>
+</div>
+
+<div layout="column">
+    <div layout="row" layout-margin>
+        <div flex>
+            <md-toolbar class="md-theme-light mb">
+                <h2 class="md-toolbar-tools">
+                    <span>Popular Albums</span>
+                </h2>
+            </md-toolbar>       
+            <md-grid-list md-cols="2" md-cols-md="3" md-cols-gt-md="4" md-gutter="10px" md-row-height="190px">
+                <md-grid-tile ng-repeat="album in ac.albums">
+                    <a ng-href ng-click="ac.getAlbum(album)"><img ng-src="{{::ac.getImage(album, 'large')}}" alt="" class="artist"></a>
+                    <md-grid-tile-footer class="artist-footer">
+                        <h3><a ng-href ng-click="ac.getAlbum(album)">{{album.name}}</a></h3>
+                    </md-grid-tile-footer>
+                </md-grid-tile>
+            </md-grid-list>            
+        </div>
+    </div>
+    <div layout="row" layout-margin>
+        <div flex>
+            <md-toolbar class="md-theme-light">
+                <h2 class="md-toolbar-tools mb">
+                    <span>Similar Artists</span>
+                </h2>
+            </md-toolbar>
+            <md-grid-list md-cols="2" md-cols-md="3" md-cols-gt-md="4" md-gutter="10px" md-row-height="190px">
+                <md-grid-tile ng-repeat="artist in ac.artist.similar.artist | limitTo:4">
+                    <a ng-href ng-click="ac.selectArtist(artist)"><img ng-src="{{::ac.getImage(artist, 'large')}}" alt="" class="artist"></a>
+                    <md-grid-tile-footer class="artist-footer">
+                        <h3><a ng-href ng-click="ac.selectArtist(artist)">{{artist.name}}</a></h3>
+                    </md-grid-tile-footer>
+                </md-grid-tile>
+            </md-grid-list>
+        </div>
+    </div>
+</div>

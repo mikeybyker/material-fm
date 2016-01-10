@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MaterialFM</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <!-- build:css(.) css/angular-material.min.css -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <!-- endbuild -->
+    <!-- build:css(.tmp) css/main.css -->
+    <link rel="stylesheet" href="css/app.css">
+    <!-- endbuild -->
+
+  </head>
+  <body ng-app="materialFmApp" layout="row" ng-cloak ng-controller="NavigationController as nc">
+
+    <!--[if lte IE 9]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
+                md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')"
+                >
+
+            <md-toolbar layout="row" class="md-whiteframe-z1 main-toolbar left">
+                <md-button class="menu" ng-click="nc.close()" aria-label="Close" hide-gt-sm>
+                    <md-icon md-svg-icon="close" ></md-icon>
+                </md-button>
+                <h1>Artists</h1>
+            </md-toolbar>
+
+            <form ng-submit="nc.searchArtists(nc.user)" name="searchForm" id="searchForm">
+                <div layout-gt-sm="row">
+                    <md-input-container flex>
+                        <label>Search for Artist</label>
+                        <input type="text" ng-model="nc.user.artist">
+                    </md-input-container>
+                    <md-input-container flex="35">
+                        <md-button class="md-raised md-warn" type="submit">Go</md-button>
+                    </md-input-container>
+                </div>                  
+            </form>
+            <md-content flex layout-padding>
+                <h3 class="results md-headline" ng-show="nc.potentials.length">Results</h3>
+                <md-list>
+                    <md-list-item ng-repeat="artist in nc.potentials">
+                        <md-input-container flex>
+                            <div layout-align="center center">
+                                <img flex="nogrow" ng-src="{{::nc.getImage(artist, 'large')}}" alt="" class="artist">
+                                <md-button class="md-raised md-warn artist-select results-button" ng-click="nc.selectArtist(artist)">
+                                    {{artist.name}}
+                                </md-button> 
+                            </div>
+                        </md-input-container>                  
+                    </md-list-item>
+                </md-list>
+            </md-content>
+
+    </md-sidenav>
+
+    <div flex layout="column" tabIndex="-1" role="main" class="">
+
+        <md-toolbar layout="row" class="md-whiteframe-z1 main-toolbar">
+            <md-button class="menu" ng-click="nc.toggleSidenav()" aria-label="Show Search" hide-gt-sm>
+                <md-icon md-svg-icon="menu" ></md-icon>
+            </md-button>
+            <h1>Material FM</h1>
+        </md-toolbar>
+
+        <md-content ng-view="" autoscroll="true" md-scroll-y flex></md-content>
+
+    </div>
+
+    <!-- build:js(.) js/lodash.min.js -->
+    <script src="bower_components/lodash/lodash.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js(.) js/angular.min.js -->    
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) js/app.js -->
+    <script src="js/materialfm/sw.materialfm.js"></script>
+    <script src="js/materialfm/controllers/navigation.js"></script>
+    <script src="js/materialfm/controllers/artist.js"></script>
+    <script src="js/materialfm/controllers/album.js"></script>
+    <script src="js/materialfm/directives/sw.materialfm.directives.js"></script>
+    <script src="js/materialfm/services/sw.materialfm.services.js"></script>
+    <script src="js/common/sw.common.js"></script>
+    <script src="js/common/services/sw.common.utilities.js"></script>
+    <script src="js/app.js"></script>
+    <!-- endbuild -->
+
+</body>
+</html>
