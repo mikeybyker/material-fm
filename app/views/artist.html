@@ -2,18 +2,17 @@
 
 <div layout="row">
     <md-card>
-        <div layout="column" layout-fill>
-            <md-toolbar class="md-accent">
-                <div class="md-toolbar-tools">
-                    <span><h3>{{ac.artist.name}}</h3></span>
-                    <span flex></span>
-                    <md-button class="menu" aria-label="Share" ng-href="{{ac.artist.url}}" target="_blank">
-                        <md-icon md-svg-icon="share" style="color: black"></md-icon>
-                        <md-tooltip>View on Last.fm</md-tooltip>
-                    </md-button>
-                </div>
-            </md-toolbar>
-        </div>
+        <md-toolbar class="md-accent">
+            <div class="md-toolbar-tools">
+                <span><h3>{{ac.artist.name}}</h3></span>
+                <span flex></span>
+                <md-button class="menu" aria-label="Share" ng-href="{{ac.artist.url}}" target="_blank">
+                    <md-icon md-svg-icon="share" style="color: black"></md-icon>
+                    <md-tooltip>View on Last.fm</md-tooltip>
+                </md-button>
+            </div>
+        </md-toolbar>
+
         <md-card-content layout="row" layout-xs="column" layout-align="start start" layout-align-xs="center center" layout-padding>
             <div flex>
                 <img ng-src="{{ac.mainimage}}" />
@@ -26,7 +25,7 @@
                     </dt>
                     <dd>{{ac.artist.stats.listeners}}</dd>
                     <dt>
-                        <strong>Play Count </strong>
+                        <strong>Play Count</strong>
                     </dt>
                     <dd>{{ac.artist.stats.playcount}}</dd>
                 </dl>
